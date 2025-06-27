@@ -2,7 +2,6 @@
 import style from "@/app/Landing.module.css";
 import { Rating } from "@mui/material";
 import Button from "@mui/material/Button";
-import Link from "next/link";
 import { Product } from "./Dummydata";
 
 interface Props {
@@ -13,23 +12,20 @@ export default function ProductCard({ item }: Props) {
   return (
     <div className="shadow-md bg-white rounded-lg p-4 flex flex-col">
       <img
-        src={item.img}
+        src={item.gallery[0]}
         alt={item.name}
-        className="h-40 w-full object-cover mb-2 rounded-lg"
+        className="h-90 w-full object-cover mb-2 rounded-lg"
       />
-      <h3 className="font-medium">{item.name}</h3>
-      <Link href={"/"} className="text-sm text-gray-500 underline">
-        {item.seller}
-      </Link>
+      <h3 className="font-medium">{`${item.name.substring(0, 50)}...`}</h3>
+      <button className="text-sm text-gray-500 underline">{item.seller}</button>
       <p className="mt-3 font-bold">₦{item.price.toLocaleString()}</p>
       <div className="flex items-center my-3!">
         <Rating size="small" value={item.rated} precision={0.5} readOnly />
-        <Link
-          href={"/reviews"}
+        <button
           className={`${style.redColor} text-sm text-gray-500 ml-3 underline`}
         >
           Reviews
-        </Link>
+        </button>
       </div>
       <Button
         variant="contained"
