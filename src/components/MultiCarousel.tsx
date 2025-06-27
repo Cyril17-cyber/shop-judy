@@ -75,8 +75,9 @@ export default function MultiCarousel({ content }: { content: Product[] }) {
           <Link
             href={`/product/${product.id}`}
             className="mr-2 flex items-center justify-center"
+            key={id}
           >
-            <ProductCard item={product} key={id} />
+            <ProductCard item={product} />
             {/* <img
               alt="w3js.com - web front-end studio"
               src={`${product.gallery[0]}?w=286&h=570&fit=crop`}

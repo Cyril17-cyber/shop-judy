@@ -21,7 +21,7 @@ const getRandomProducts = (arr: Product[], count: number) => {
   return shuffled.slice(0, count);
 };
 
-const randomProducts = getRandomProducts(products, 8);
+// const randomProducts = getRandomProducts(products, 8);
 const highRatedFashion = getRandomProducts(
   products.filter((p) => p.category === "fashion" && p.rated >= 4.0),
   15
@@ -32,13 +32,13 @@ const cheapKitchen = getRandomProducts(
   15
 );
 
-const getCategoryProductsSlice = (
-  arr: Product[],
-  category: string,
-  count: number
-) => {
-  return arr.filter((p) => p.category === category).slice(0, count);
-};
+// const getCategoryProductsSlice = (
+//   arr: Product[],
+//   category: string,
+//   count: number
+// ) => {
+//   return arr.filter((p) => p.category === category).slice(0, count);
+// };
 
 const homeCategory = categories.find((c) => c.name === "home");
 
@@ -79,22 +79,6 @@ export default function HomePage() {
   //     .then((r) => setFlashSales(r.data))
   //     .catch(() => {});
   // }, []);
-
-  const [filteredCategory, setFilteredCategory] = useState<string>("");
-  const [subCategory, setSubCategory] = useState<string>("");
-  function newCategory(name: string) {
-    setSubCategory("");
-    setFilteredCategory(name);
-  }
-  function clearAll() {
-    setFilteredCategory("");
-    setSubCategory("");
-  }
-
-  const navState = useAppSelector((state: any) => state.navHeight.value);
-  const carouselHeight = useAppSelector(
-    (state: any) => state.carouselHeight.value
-  );
 
   return (
     <main className="bg-white lg:bg-gray-100">

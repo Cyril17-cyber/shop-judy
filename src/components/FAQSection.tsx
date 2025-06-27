@@ -73,8 +73,8 @@ export default function FAQSection() {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {faqData.map((item, idx) => (
-          <FAQItemComponent key={idx} {...item} />
+        {faqData.map((item, id) => (
+          <FAQItemComponent key={id} {...item} />
         ))}
       </div>
     </section>

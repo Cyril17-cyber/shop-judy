@@ -25,12 +25,12 @@ export default function FooterSection() {
         />
         <p className="mb-2">Buy Smarter, Sell Better</p>
       </div>
-      {Object.entries(footerLinks).map(([title, links]) => (
-        <div key={title} className="text-center md:text-left">
+      {Object.entries(footerLinks).map(([title, links], keyId) => (
+        <div key={keyId} className="text-center md:text-left">
           <h3 className="font-semibold mb-2">{title}</h3>
           <ul className="space-y-1">
-            {links.map((link) => (
-              <li key={link}>
+            {links.map((link, id) => (
+              <li key={id}>
                 <a href="#" className="text-gray-600 hover:text-black">
                   {link}
                 </a>

@@ -73,9 +73,9 @@ export default function NavBar({
           </div>
           <div className="flex items-center">
             <div className="hidden lg:flex items-center text-gray-700">
-              {["Help", "About Us", "Sell"].map((txt) => (
+              {["Help", "About Us", "Sell"].map((txt, id) => (
                 <Link
-                  key={txt}
+                  key={id}
                   href={`/${txt.toLowerCase().replace(/\s+/g, "-")}`}
                   className="mr-7"
                   style={{ textDecoration: "none" }}
