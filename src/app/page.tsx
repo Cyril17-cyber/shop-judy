@@ -10,7 +10,6 @@ import mobileCarousel4 from "@/app/public/carousel-mobile-4.jpg";
 import GridCard from "@/components/GridCard";
 import MultiCarousel from "@/components/MultiCarousel";
 import { useAppSelector } from "@/lib/hooks";
-import { useState } from "react";
 import ControlledCarousel from "../components/ControlledCarousel";
 import { categories, Product, products } from "../components/Dummydata";
 import FAQSection from "../components/FAQSection";
@@ -59,6 +58,7 @@ const fitnessCategory = categories.find((c) => c.name === "fitness");
 const babyCategory = categories.find((c) => c.name === "baby products");
 
 export default function HomePage() {
+  const navHeight = useAppSelector((state: any) => state.navHeight.value);
   const desktopCarouselImages = [
     desktopCarousel1,
     desktopCarousel2,
@@ -81,7 +81,10 @@ export default function HomePage() {
   // }, []);
 
   return (
-    <main className="bg-white lg:bg-gray-100">
+    <main
+      className={`bg-white lg:bg-gray-100`}
+      style={{ marginTop: `${navHeight}px` }}
+    >
       <div className="hidden lg:flex items-center justify-center relative w-full">
         <ControlledCarousel images={desktopCarouselImages} />
       </div>
@@ -237,7 +240,7 @@ export default function HomePage() {
               placeholder="Enter your Email"
               className="border p-2 rounded w-full"
             />
-            <button className="bg-black text-white px-4 py-2 rounded">
+            <button className="bg-black text-fuchsia-50 px-4 py-2 rounded">
               Subscribe
             </button>
           </div>

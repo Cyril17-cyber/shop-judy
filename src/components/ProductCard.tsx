@@ -29,7 +29,7 @@ export default function ProductCard({ item }: Props) {
       </div>
       <Button
         variant="contained"
-        className={`${style.addToCartButton} text-white!`}
+        className={`${style.addToCartButton} text-fuchsia-50!`}
       >
         Add to Cart
       </Button>

@@ -9,7 +9,7 @@ export default function Page() {
       <Link href="/" className="logo">
         <Image
           src={logo}
-          alt="Erubaba Logo"
+          alt="Judy Logo"
           width={100}
           height={50}
           className="h-10 w-auto"

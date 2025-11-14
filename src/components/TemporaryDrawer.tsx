@@ -19,10 +19,9 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import { Poppins } from "next/font/google";
 import Link from "next/link";
-import {
-  categories,
-  SubCategoryType
-} from "../components/Dummydata";
+import { categories, SubCategoryType } from "../components/Dummydata";
+import { redirect } from "next/navigation";
+import { slugify } from "../components/Dummydata";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -55,7 +54,10 @@ const DropDown = ({
             <div
               key={sId}
               className="py-3 px-5"
-              onClick={() => toggleDrawer(false)}
+              onClick={() => {
+                toggleDrawer(false);
+                redirect(`/${slugify(name)}/${slugify(s.name)}`);
+              }}
             >
               <p className="text-xs lg:text-sm cursor-pointer">{s.name}</p>
             </div>
@@ -75,7 +77,7 @@ export default function TemporaryDrawer({
 }) {
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation">
-      <div className="py-3 bg-gray-700 text-white flex items-center justify-center">
+      <div className="py-3 bg-gray-700 text-fuchsia-50 flex items-center justify-center">
         <div className="">
           <AccountCircle />
           <Link href={"/login"} className="ml-3 text-lg font-semibold">

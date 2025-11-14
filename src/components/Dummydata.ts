@@ -5,6 +5,11 @@ export interface SubCategoryType {
   image: string;
 }
 
+interface CityType {
+  country: string;
+  city: string;
+}
+
 interface CategoryType {
   name: string;
   subCategories: SubCategoryType[];
@@ -15,7 +20,7 @@ export const categories: CategoryType[] = [
     name: "electronics",
     subCategories: [
       {
-        name: "television",
+        name: "television & video",
         image:
           "https://images.unsplash.com/photo-1701421048182-2a628d927578?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c21hcnQlMjB0ZWxldmlzaW9ufGVufDB8MnwwfHx8Mg%3D%3D",
       },
@@ -315,16 +320,18 @@ export interface Product {
   price: number;
   seller: string;
   rated: number;
-  category: string; // Optional category field
-  subCategory: string; // Optional sub-category field
+  category: string; //category field
+  subCategory: string; //sub-category field
   sex?: string;
   colors?: string[];
+  sizes?: string[];
   condition: string;
-  description: string[]; // Optional description field
-  stock: number; // Optional stock field
-  discount?: number; // Optional discount field
-  gallery: string[]; // Optional gallery field for multiple images
-  createdAt: string; // Optional field for creation date
+  description: string[]; //description field
+  stock: number; //stock field
+  discount?: number; //discount field
+  gallery: string[]; //gallery field for multiple images
+  createdAt: string; //field for creation date
+  deliversTo: CityType[];
   brand: string;
   keywords: string[];
 }
@@ -357,6 +364,16 @@ export const products: Product[] = [
       "https://m.media-amazon.com/images/I/71cvNkssE3L._AC_SY879_.jpg",
     ],
     createdAt: "12-03-2024",
+    deliversTo: [
+      {
+        country: "Nigeria",
+        city: "Kaduna",
+      },
+      {
+        country: "Nigeria",
+        city: "Enugu",
+      },
+    ],
     brand: "Chiffon",
     keywords: ["fashion", "clothing", "chiffon", "female", "women"],
   },
@@ -387,6 +404,16 @@ export const products: Product[] = [
       "https://m.media-amazon.com/images/I/619c0XNoteL._AC_SY879_.jpg",
     ],
     createdAt: "20-03-2024",
+    deliversTo: [
+      {
+        country: "Nigeria",
+        city: "Enugu",
+      },
+      {
+        country: "Nigeria",
+        city: "Lagos",
+      },
+    ],
     brand: "Dokotoo",
     keywords: ["fashion", "clothing", "chiffon", "female", "women"],
   },
@@ -418,6 +445,16 @@ export const products: Product[] = [
       "https://m.media-amazon.com/images/I/71Z2LUBeAkL._AC_SX679_.jpg",
     ],
     createdAt: "20-03-2024",
+    deliversTo: [
+      {
+        country: "Nigeria",
+        city: "Kaduna",
+      },
+      {
+        country: "Nigeria",
+        city: "Abuja",
+      },
+    ],
     brand: "J.VER",
     keywords: ["fashion", "clothing", "chiffon", "male", "men"],
   },
@@ -448,6 +485,16 @@ export const products: Product[] = [
       "https://m.media-amazon.com/images/I/91dJT8AZpyL._AC_SY879_.jpg",
     ],
     createdAt: "20-03-2024",
+    deliversTo: [
+      {
+        country: "Nigeria",
+        city: "Abuja",
+      },
+      {
+        country: "Nigeria",
+        city: "Lagos",
+      },
+    ],
     brand: "J.VER",
     keywords: ["fashion", "clothing", "chiffon", "male", "men"],
   },
@@ -478,6 +525,16 @@ export const products: Product[] = [
       "https://m.media-amazon.com/images/I/81VxZGvl1vL._AC_SY695_.jpg",
     ],
     createdAt: "12-03-2024",
+    deliversTo: [
+      {
+        country: "United States",
+        city: "California",
+      },
+      {
+        country: "Nigeria",
+        city: "Enugu",
+      },
+    ],
     brand: "COSIDRAM",
     keywords: ["fashion", "shoes", "men", "male"],
   },
@@ -508,6 +565,16 @@ export const products: Product[] = [
       "https://m.media-amazon.com/images/I/61gb29pysKL._AC_SY695_.jpg",
     ],
     createdAt: "18-03-2024",
+    deliversTo: [
+      {
+        country: "Canada",
+        city: "Ottawa",
+      },
+      {
+        country: "Nigeria",
+        city: "Lagos",
+      },
+    ],
     brand: "Susanny",
     keywords: ["fashion", "shoes", "female", "women"],
   },
@@ -538,6 +605,16 @@ export const products: Product[] = [
       "https://m.media-amazon.com/images/I/41ANWMHaAlL._AC_.jpg",
     ],
     createdAt: "18-03-2024",
+    deliversTo: [
+      {
+        country: "Nigeria",
+        city: "Port Harcourt",
+      },
+      {
+        country: "Nigeria",
+        city: "Kwara",
+      },
+    ],
     brand: "SYGWEEL",
     keywords: ["fashion", "bags", "female", "women"],
   },
@@ -568,6 +645,16 @@ export const products: Product[] = [
       "https://m.media-amazon.com/images/I/71oTGTM0JwL._AC_SY695_.jpg",
     ],
     createdAt: "18-03-2024",
+    deliversTo: [
+      {
+        country: "Nigeria",
+        city: "Kaduna",
+      },
+      {
+        country: "Nigeria",
+        city: "Enugu",
+      },
+    ],
     brand: "Dasein",
     keywords: ["fashion", "bags", "female", "women"],
   },
@@ -598,6 +685,16 @@ export const products: Product[] = [
       "https://m.media-amazon.com/images/I/81jiUsG5pSL._AC_SX679_.jpg",
     ],
     createdAt: "18-03-2024",
+    deliversTo: [
+      {
+        country: "Nigeria",
+        city: "Lagos",
+      },
+      {
+        country: "Nigeria",
+        city: "Abuja",
+      },
+    ],
     brand: "Dasein",
     keywords: ["fashion", "belt", "accessories", "male", "men"],
   },
@@ -628,6 +725,16 @@ export const products: Product[] = [
       "https://m.media-amazon.com/images/I/31KELgkFk8S._AC_.jpg",
     ],
     createdAt: "18-03-2024",
+    deliversTo: [
+      {
+        country: "Nigeria",
+        city: "Benin",
+      },
+      {
+        country: "Nigeria",
+        city: "Lagos",
+      },
+    ],
     brand: "BURBERRY",
     keywords: [
       "fashion",
@@ -669,6 +776,16 @@ export const products: Product[] = [
       "https://m.media-amazon.com/images/I/71LP0YRIOvL._AC_SY695_.jpg",
     ],
     createdAt: "18-03-2024",
+    deliversTo: [
+      {
+        country: "Canada",
+        city: "Toronto",
+      },
+      {
+        country: "Nigeria",
+        city: "Enugu",
+      },
+    ],
     brand: "Hoaritik",
     keywords: ["fashion", "jewelry", "chain", "female", "women"],
   },
@@ -697,6 +814,16 @@ export const products: Product[] = [
       "https://m.media-amazon.com/images/I/810Z0YRuKgL._AC_SL1500_.jpg",
     ],
     createdAt: "18-03-2024",
+    deliversTo: [
+      {
+        country: "Nigeria",
+        city: "Kaduna",
+      },
+      {
+        country: "Nigeria",
+        city: "Enugu",
+      },
+    ],
     brand: "Plain wood",
     keywords: ["kitchen", "cutlery", "utensils", "knife"],
   },
@@ -725,6 +852,16 @@ export const products: Product[] = [
       "https://m.media-amazon.com/images/I/71Exnpx5-LL._AC_SX679_.jpg",
     ],
     createdAt: "18-03-2024",
+    deliversTo: [
+      {
+        country: "Nigeria",
+        city: "Kaduna",
+      },
+      {
+        country: "Nigeria",
+        city: "Enugu",
+      },
+    ],
     brand: "Keystar",
     keywords: ["kitchen", "gadget", "chopper", "fruit slicer"],
   },
@@ -753,6 +890,16 @@ export const products: Product[] = [
       "https://m.media-amazon.com/images/I/71S4DfQEwXL._AC_SL1500_.jpg",
     ],
     createdAt: "18-03-2024",
+    deliversTo: [
+      {
+        country: "Nigeria",
+        city: "Kaduna",
+      },
+      {
+        country: "Nigeria",
+        city: "Enugu",
+      },
+    ],
     brand: "Deiss PRO",
     keywords: ["kitchen", "gadget", "chopper", "fruit slicer"],
   },
@@ -776,12 +923,109 @@ export const products: Product[] = [
     gallery: [
       "https://m.media-amazon.com/images/I/71mDTOYtDSL._AC_SL1500_.jpg",
       "https://m.media-amazon.com/images/I/71hhHF4mNaL._AC_SL1500_.jpg",
-      "hhttps://m.media-amazon.com/images/I/81QVDJumE7L._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/814PiSnvZzL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71kwZlXKc5L._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71Cb5V8XP4L._AC_SX679_.jpg",
+    ],
+    createdAt: "18-04-2024",
+    deliversTo: [
+      {
+        country: "Nigeria",
+        city: "Abuja",
+      },
+      {
+        country: "Nigeria",
+        city: "Enugu",
+      },
+    ],
+    brand: "Deiss PRO",
+    keywords: ["kitchen", "cookware", "pots", "pans"],
+  },
+  {
+    id: 16,
+    name: "BENFEI HDMI to VGA 6 Feet Cable, Uni-Directional HDMI Computer to VGA Monitor Cable (Male to Male) Compatible for Computer, Desktop, Laptop, PC, Monitor, Projector, HDTV, Roku, Xbox",
+    price: 10000,
+    seller: "BENFEI Store",
+    rated: 4.5,
+    category: "electronics",
+    subCategory: "television & video",
+    colors: ["#1e1e1e", "#fefefe"],
+    condition: "brand new",
+    description: [
+      "COMPACT DESIGN - The compact-designed portable Benfei HDMI to VGA adapter connects a computer, desktop, laptop, or other devices with HDMI port to a monitor, projector, HDTV, or other devices with VGA port; Tuck this lightweight gadget into your bag to do a business presentation with your laptop and projector, or extend your desktop screen to a monitor or TV;",
+      "SUPERIOR STABILITY - Built-in advanced IC chip converts HDMI digital signal to VGA analog signal; ✅ It is NOT a bi-directional converter and cannot transmit signals from VGA to HDMI",
+      "INCREDIBLE PERFORMANCE - The HDMI male to VGA Male cable supports resolutions up to 1920x1080@60Hz (1080p Full HD) including 720p, 1600x1200, 1280x1024 for high definition monitors or projectors; Gold plated HDMI connector resists corrosion and abrasion and improve the signal transmission performance;,  Molded strain relief increases cable durability",
+      "BROAD COMPATIBILITY - The HDMI-VGA adapter is compatible with computer, pc, desktop, laptop, ultrabook, notebook, Chromebook, Raspberry Pi, Intel Nuc, Roku, PS3, Xbox One, Xbox 360, Wii U, Set Top Box, TV BOX, or other devices with HDMI port; ✅ NOT compatible with Blu-ray player and devices with low-power HDMI ports such as SONY PS4, Apple MacBook Pro with Retina Display, Mac mini, and Apple TV;",
+      "18 MONTH WARRANTY - Exclusive Benfei Unconditional 18-month Warranty ensures long-time satisfaction of your purchase; Friendly and easy-to-reach customer service to solve your problems timely",
+    ],
+    stock: 12,
+    gallery: [
+      "https://m.media-amazon.com/images/I/71sA-0p4ECL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71zZVKeioCL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/81QVDJumE7L._AC_SL1500_.jpg",
       "https://m.media-amazon.com/images/I/71oi5Bw0SiL._AC_SL1500_.jpg",
       "https://m.media-amazon.com/images/I/81ON+YCVcML._AC_SL1500_.jpg",
     ],
     createdAt: "18-03-2024",
+    deliversTo: [
+      {
+        country: "Nigeria",
+        city: "Kaduna",
+      },
+      {
+        country: "Nigeria",
+        city: "Enugu",
+      },
+    ],
+    brand: "BENFEI",
+    keywords: ["Laptop", "Monitor", "PC", "Projector", "Television", "HDMI"],
+  },
+  {
+    id: 17,
+    name: "100 inch Projector Screen and Stand,Portable Projector Screen 4K HD Rear Front Projection Screen with Carry Bag for Outdoor Indoor Home Theater Backyard Cinema Travel",
+    price: 45000,
+    seller: "Abdtech Store",
+    rated: 4.4,
+    category: "electronics",
+    subCategory: "television & video",
+    colors: ["#1e1e1e", "#fefefe"],
+    sizes: ["100Inch", "120Inch"],
+    condition: "fairly used",
+    description: [
+      "【Wrinkle Free Outdoor Movie Screen】With 100-inch Diagonal, 160° Wide Viewing Angle, Gain 1.1 and 16:9 aspect ratio, 100inch outdoor projector screen with stand has made of high-quality polyester & spandex material , thicker than other average screens. Projector screen with stand greatly offers sharper and brighter image quality. Screen has soft and smooth touch feeling,which make you more pleasure，not easy to be yellow, Meanwhile, supporting front and rear projection.",
+      "【Unique Screen Edge Design】3-side black border adopt hollow design convenient for posts insertion. Outdoor projector screen will be greatly maintained itself flatness, no waves and wrinkles. When some breeze blows over and screen can’t easily be deflected. This design will increase its the whole screen's stability and benefit for fast installation. No any complicated process of fixing outdoor movie screen.",
+      "【High-Quality Accessory】Outdoor movie screen with stand comes with several Lightweight aluminum poles.It don’t easily be rust or distorted. Deeper plastic joints can be perfectly insert into aluminum poles with a tight fit to avoid loose. Two oblong base with 4 fixed posts greatly make the stand very sturdy. Its base will take less rooms on its behind but meanwhile no lessen its stability.",
+      "【Lightweight And Easy To Carry】Rear projector screen with stand has weight of 5.7 lbs. You can hold it on one hand or put travel bags on your shoulders, easy to carry in anywhere you want and pack away. It is very portable and takes less space.You can put it in the car trunks for travel. Better enjoy an exciting movie with 4k ultra HD home projector when at outdoor. Compatible indoor with outdoor use. Great gift ideas on Birthday, Fathers day, Valentine's Day, Christmas and so on.",
+      "【Easy To Install Within 5 Mins】No screws, no strings,only several kinds of accessory, enough to fastly and firmly set it up. You don’t need to do research or buy for extra accessory. Two people work together can finish assembling within 5 mins. Great for rapidly transfer place with less time. If outdoor portable projector screen get dirty, you can wash it and then hang it up.",
+    ],
+    stock: 12,
+    gallery: [
+      "https://m.media-amazon.com/images/I/71RnPw+GhkL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/7124zZNlYqL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/81Db5uZ4snL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71DBHaKJAZL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71tXNkh1wuL._AC_SX679_.jpg",
+    ],
+    createdAt: "15-02-2024",
+    deliversTo: [
+      {
+        country: "Nigeria",
+        city: "Kaduna",
+      },
+      {
+        country: "Nigeria",
+        city: "Kano",
+      },
+    ],
     brand: "Deiss PRO",
-    keywords: ["kitchen", "cookware", "pots", "pans"],
+    keywords: ["Laptop", "Monitor", "PC", "Projector", "Television", "HDMI"],
   },
 ];
+
+export function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/&/g, "and") // replace "&" with "and"
+    .replace(/[\s\W-]+/g, "-"); // replace spaces and non-word chars with "-"
+}

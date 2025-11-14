@@ -1,6 +1,6 @@
 import styles from "@/app/Landing.module.css";
 import Link from "next/link";
-import { SubCategoryType } from "./Dummydata";
+import { SubCategoryType, slugify } from "./Dummydata";
 
 export default function GridCard({
   heading,
@@ -18,20 +18,14 @@ export default function GridCard({
         className={`grid grid-cols-2 gap-x-2 gap-y-4 ${styles.imageList}  mb-5`}
       >
         {items.map((item, id) => (
-          <Link
-            href={`/${category.replace(/\s+/g, "-")}/${item.name.replace(
-              /\s+/g,
-              "-"
-            )}`}
-            key={id}
-          >
+          <Link href={`/${slugify(category)}/${slugify(item.name)}`} key={id}>
             <img src={item.image} alt={item.name} className="" />
             <p className="text-xs font-medium mt-1">{item.name}</p>
           </Link>
         ))}
       </div>
       <Link
-        href={`/${category.replace(/\s+/g, "-")}`}
+        href={`/${slugify(category)}`}
         className="text-blue-500"
       >
         Explore More

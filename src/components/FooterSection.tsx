@@ -18,7 +18,7 @@ export default function FooterSection() {
       <div className="flex flex-col items-center md:items-start">
         <Image
           src={logo}
-          alt="Erubaba Logo"
+          alt="Judy Logo"
           width={100}
           height={50}
           className="h-10 w-auto"
@@ -31,7 +31,7 @@ export default function FooterSection() {
           <ul className="space-y-1">
             {links.map((link, id) => (
               <li key={id}>
-                <a href="#" className="text-gray-600 hover:text-black">
+                <a href="#" className="text-gray-600 hover:text-slate-950">
                   {link}
                 </a>
               </li>
