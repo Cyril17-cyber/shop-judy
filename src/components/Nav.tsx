@@ -1,25 +1,24 @@
 "use client";
 import logo from "@/app/public/logo.png";
 import {
+  LocationOnOutlined,
   Menu,
   PermIdentity,
   ShoppingCartOutlined,
-  LocationOnOutlined,
 } from "@mui/icons-material";
-import { Badge, IconButton } from "@mui/material";
-import { AppBar, Toolbar, Tooltip, Dialog } from "@mui/material";
+import { AppBar, Badge, Dialog, IconButton, Toolbar } from "@mui/material";
+import Button from "@mui/material/Button";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import Button from "@mui/material/Button";
 import Image from "next/image";
 import Link from "next/link";
 import SearchInput from "./SearchInput";
 //redux
 import { setHeight } from "@/lib/features/navHeight/navHeightSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function NavBar({
   toggleDrawer,

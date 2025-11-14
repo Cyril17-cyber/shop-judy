@@ -1,8 +1,8 @@
 //This file handles all the state in the code
 import { configureStore } from "@reduxjs/toolkit";
+import locationSlice from "./features/location/locationSlice";
 import carouselHeightSlice from "./features/navHeight/carouselHeight";
 import navSlice from "./features/navHeight/navHeightSlice";
-import locationSlice from "./features/location/locationSlice"
 
 export const makeStore = () => {
   return configureStore({
