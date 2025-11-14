@@ -1,29 +1,22 @@
-import { FlatCompat } from "@eslint/eslintrc";
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
 
-const compat = new FlatCompat();
-
-const eslintConfig = [
-  {
-    // Replaces `.eslintignore`
-    ignores: [
-      "node_modules/",
-      ".next/",
-      "build/",
-      "public/",
-      "scripts/",
-      "pages/api/",
-    ],
-  },
-
-  // Keep your existing config
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
-
+const eslintConfig = defineConfig([
+  ...nextVitals,
   {
     rules: {
-      "no-console": "off",
-      "react/react-in-jsx-scope": "off",
+      "react/no-unescaped-entities": "off",
+      "@next/next/no-page-custom-font": "off",
     },
   },
-];
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+  ]),
+]);
 
 export default eslintConfig;
