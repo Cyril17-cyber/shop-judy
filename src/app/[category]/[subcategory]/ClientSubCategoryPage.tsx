@@ -1,11 +1,10 @@
 "use client";
-import React from "react";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Link from "next/link";
-import ProductCard from "@/components/ProductCard";
 import { products, slugify } from "@/components/Dummydata";
+import ProductCard from "@/components/ProductCard";
 import { useAppSelector } from "@/lib/hooks";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { Poppins } from "next/font/google";
+import Link from "next/link";
 
 const poppins = Poppins({
   subsets: ["latin"],

@@ -1,5 +1,5 @@
-import { notFound } from "next/navigation";
 import { categories, slugify } from "@/components/Dummydata";
+import { notFound } from "next/navigation";
 import ClientCategoryPage from "./ClientCategoryPage";
 
 export default function Page({ params }: { params: { category: string } }) {
