@@ -5,7 +5,7 @@ import ClientCategoryPage from "./ClientCategoryPage";
 export default async function Page({
   params,
 }: {
-  params: { category: string }; // Note: non-promise
+  params: any; // let Next.js handle the exact type
 }) {
   const { category } = await params;
 

@@ -7,7 +7,7 @@ export default async function Layout({
   params,
 }: {
   children: React.ReactNode;
-  params: { category: string; subcategory: string }; // keep it a normal object
+  params: any; // let Next.js handle the exact type
 }) {
   const { category, subcategory } = await params; // unwrap the promise
 
