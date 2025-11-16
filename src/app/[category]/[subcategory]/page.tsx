@@ -1,19 +1,18 @@
 import { categories, slugify } from "@/components/Dummydata";
 import { notFound } from "next/navigation";
 import ClientSubCategoryPage from "./ClientSubCategoryPage";
+import { use } from "react";
 
 export default async function Page({
   params,
 }: {
-  params: Promise<{ category: string; subcategory: string }>;
+  params: { category: string; subcategory: string }; // keep it a normal object
 }) {
-  // await params because layout is async
-  const resolvedParams = await params;
-  const { category, subcategory } = resolvedParams;
+  const { category, subcategory } = await params; // unwrap the promise
 
   // Validate category
   const foundCategory = categories.find(
-    (cat) => slugify(cat.name) === category.toLowerCase()
+    (cat) => slugify(cat.name) === category?.toLowerCase()
   );
   if (!foundCategory) notFound();
 

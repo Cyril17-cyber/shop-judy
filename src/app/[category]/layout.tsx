@@ -6,11 +6,11 @@ export default async function Layout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ category: string }>;
+  params: { category: string }; // keep it a normal object
 }) {
-  // await params because layout is async
-  const resolvedParams = await params;
-  const { category } = resolvedParams;
+  const { category } = await params; // unwrap the Promise internally
+
+  if (!category) notFound();
 
   const foundCategory = categories.find(
     (cat) => slugify(cat.name) === category.toLowerCase()
