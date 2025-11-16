@@ -1,0 +1,31 @@
+.hero {
+  background-image: url("./public/img-hero.png");
+}
+
+.addToCartButton {
+  background: #252020 !important;
+}
+
+.redColor {
+  color: #fe0e0e;
+}
+
+.moreThanHalf {
+  grid-template-columns: 60% 40%;
+}
+
+.imageList {
+  grid-column-gap: 15px;
+  grid-row-gap: 30px;
+}
+
+.drawer .MuiDrawer-paperAnchorLeft {
+  z-index: 3000000 !important;
+}
+
+/*larger screens */
+@media (width >= 64rem) {
+  .hero {
+    background-image: url("./public/redBg.png");
+  }
+}
