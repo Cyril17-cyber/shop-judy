@@ -10,13 +10,9 @@ import mobileCarousel4 from "@/app/public/carousel-mobile-4.jpg";
 import GridCard from "@/components/GridCard";
 import MultiCarousel from "@/components/MultiCarousel";
 import { useAppSelector } from "@/lib/hooks";
-import ControlledCarousel from "../../../shop-judy/src/components/ControlledCarousel";
-import {
-  categories,
-  Product,
-  products,
-} from "../../../shop-judy/src/components/Dummydata";
-import FAQSection from "../../../shop-judy/src/components/FAQSection";
+import ControlledCarousel from "@/components/ControlledCarousel";
+import { categories, Product, products } from "@/components/Dummydata";
+import FAQSection from "@/components/FAQSection";
 import styles from "./Landing.module.css";
 
 const getRandomProducts = (arr: Product[], count: number) => {

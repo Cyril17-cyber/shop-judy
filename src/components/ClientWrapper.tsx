@@ -10,9 +10,9 @@ import {
 import { useEffect, useState, ReactNode } from "react";
 
 import CssBaseline from "@mui/material/CssBaseline";
-import NavBar from "../../../shop-judy/src/components/Nav";
-import TemporaryDrawer from "../../../shop-judy/src/components/TemporaryDrawer";
-import FooterSection from "../../../shop-judy/src/components/FooterSection";
+import NavBar from "@/components/Nav";
+import TemporaryDrawer from "@/components/TemporaryDrawer";
+import FooterSection from "@/components/FooterSection";
 
 export default function ClientWrapper({ children }: { children: ReactNode }) {
   const [openMenu, setOpenMenu] = useState(false);
